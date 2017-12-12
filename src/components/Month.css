@@ -1,0 +1,30 @@
+.up {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+    .title {
+      color: #523249;
+    }
+
+    .content {
+      display: flex;
+      height: 350px;
+      background-color: #E2C2C6;
+    }
+
+        .calendarContainer {
+          flex:1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .allMemos {
+          flex:1;
+          text-align: left;
+          margin: 20px 0;
+          border-radius: 4px;
+          overflow-y: scroll;
+        }

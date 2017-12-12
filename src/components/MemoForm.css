@@ -1,0 +1,19 @@
+form {
+  width: 100%;
+}
+
+    input {
+      width: 90%;
+      height: 45px;
+      padding: 0 5%;
+      border: none;
+      border-radius: 10px;
+    }
+
+    form button {
+      margin-top: 10px;
+      border: none;
+      color: #523249;
+      background-color: transparent;
+      font-size: 25px;
+    }

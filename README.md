@@ -1,1 +1,1 @@
-# calendar-react-redux
+Calendar app with React & Redux
