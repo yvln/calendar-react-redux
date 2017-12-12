@@ -11,7 +11,7 @@ class AllMemos extends Component {
     return memos.map( memo => {
       console.log(memo);
       console.log(memo.text.date);
-      return <li className='allMemosItem'>
+      return <li key={Math.random()} className='allMemosItem'>
           <span className='dateMemoText'>{memo.date}</span>
           <span className='listMemoText'> {memo.text.content}</span>
         </li>

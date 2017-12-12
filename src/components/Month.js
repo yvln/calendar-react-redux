@@ -20,10 +20,12 @@ const Month = ({ onClickDay, day, memos }) => {
             onClickDay={day=>{onClickDay(day, memos)}}
           />
         </div>
-        <div className='allMemos'>
-          <AllMemos
-            memos={memos} />
-        </div>
+        {memos.length !== 0 &&
+          <div className='allMemos'>
+            <AllMemos
+              memos={memos} />
+          </div>
+        }
       </div>
       {day &&
         <WithManageMemo />

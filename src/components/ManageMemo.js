@@ -27,29 +27,31 @@ class ManageMemo extends Component {
   onMouseOver = (event, index) => {
     event.target.classList.add('hovered');
     this.setState({
-      hovered: index
+      hovered: parseInt(index)
     })
+    this.onHover();
   }
   onMouseLeave = (event) => {
     event.target.classList.remove('hovered');
     this.setState({
       hovered: 0
     })
+    this.onHover();
   }
 
   onHover = () => {
     const itemMemo = [...document.querySelectorAll('.item-memo')];
     itemMemo.forEach( element => {
       let id = element.getAttribute('data-id');
-      element.addEventListener('mouseover', e => {this.onMouseOver(e, id)});
       element.addEventListener('mouseleave', this.onMouseLeave);
+      element.addEventListener('mouseover', e => {this.onMouseOver(e, id)});
     })
   }
 
   getAllMemos = (memos, day, deleteItem) => {
     return memos.map(memo => {
       if (memo.date === day) {
-        return <div  className='itemMemoContainer'>
+        return <div key={Math.random()} className='itemMemoContainer'>
 
                   <div className='item-memo'
                     data-id={memo.index}
@@ -58,7 +60,7 @@ class ManageMemo extends Component {
                     <div className='item-memo-textcontent'>{memo.text.content}</div>
                   </div>
 
-                  {this.state.hovered == memo.index &&
+                  {this.state.hovered === memo.index &&
                     <div className='delete-button-container'>
                       <button className='delete-button' onClick={() => {this.props.deleteItem(memo.index)}}>Delete</button>
                     </div>
