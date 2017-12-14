@@ -8,8 +8,7 @@ import AllMemos from './AllMemos';
 class ManageMemo extends Component {
 
   render() {
-
-    const { memos, day, deleteItem, onClickItem } = this.props;
+    const { memos, day, deleteItem } = this.props;
     return (
       <div className='manageMemos'>
         {day &&

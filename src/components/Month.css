@@ -12,16 +12,11 @@
 
     .content {
       display: flex;
+      justify-content: center;
+      align-items: center;
       height: 350px;
       background-color: #E2C2C6;
     }
-
-        .calendarContainer {
-          flex:1;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
 
         .allMemos {
           flex:1;

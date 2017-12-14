@@ -9,15 +9,13 @@ class OneMemo extends Component {
   }
 
   render() {
-
-    const { day, date, dataid, text, deleteItem, hovered } = this.props;
+    const { day, date, dataid, text, deleteItem } = this.props;
 
     return (
-      <span className='itemMemoContainer'>
-
-        <span className='item-memo-container'
-          data-id={dataid}
-          onClick={this.onClickItem}>
+      <span className='itemMemoContainer'
+        data-id={dataid}
+        onClick={this.onClickItem}
+        ref={element => this.element = element}>
 
           <span className='item-memo-textcontent'>
 
@@ -27,15 +25,13 @@ class OneMemo extends Component {
 
             {text}
 
-            {hovered === dataid &&
+            {true &&
               <span className='delete-button' onClick={() => {deleteItem(dataid)}}>
                 Delete
               </span>
             }
-            
-          </span>
 
-        </span>
+          </span>
 
       </span>
     )
@@ -47,7 +43,6 @@ OneMemo.propTypes = {
   date: PropTypes.any,
   dataid: PropTypes.any,
   text: PropTypes.any,
-  hovered: PropTypes.any,
   deleteItem: PropTypes.func,
 };
 

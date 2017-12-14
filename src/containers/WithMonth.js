@@ -21,10 +21,10 @@ const mapDispatchToProps = (dispatch) => {
       const year = dateObj.getFullYear();
       const fullDate = `${day}/${month}/${year}`;
 
-      dispatch(actions.displayDetailsDays(fullDate, memos));
+      dispatch(actions.displayDetailsDays(fullDate));
     },
     onClickSeeAll: (memos) => {
-      dispatch(actions.displayDetailsDays('All Memos', memos));
+      dispatch(actions.displayDetailsDays('All Memos'));
     }
   };
 };

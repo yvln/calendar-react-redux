@@ -1,21 +1,10 @@
 import actionTypes from './actionTypes';
 
-export const displayDetailsDays = (day, memos) => {
-  let memosFilter;
-  if (day === 'All Memos') {
-    memosFilter = [...memos];
-  } else {
-    if (memos) {
-      memosFilter = memos.filter(e => {return e.date === day});
-    } else {
-      memosFilter = []
-    }
-  }
+export const displayDetailsDays = (day) => {
   return {
     type: actionTypes.DISPLAY_DETAILS_DAY,
     payload: {
-      day: day,
-      memos: memosFilter,
+      day: day
     },
   };
 };

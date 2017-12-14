@@ -1,43 +1,43 @@
 .itemMemoContainer {
   position: relative;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-    .item-memo-container {
+    .item-memo-textcontent {
       flex:1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      color: white;
+      padding: 10px 70px;
+      margin: 3px 0;
+      position: relative;
     }
 
-        .item-memo-textcontent {
-          flex:1;
-          color: white;
-          padding: 10px 70px;
-          margin: 3px 0;
-          position: relative;
+        .dateMemoText {
+          position: absolute;
+          width: 70px;
+          left: 10px;
+          top: 13px;
         }
 
-            .dateMemoText {
-              position: absolute;
-              width: 70px;
-              left: 10px;
-              top: 13px;
-            }
+        .delete-button {
+          display: none;
+        }
 
-    .delete-button {
-      position: absolute;
-      right: 20px;
-      top: 12px;
-      color: white;
-    }
+        .item-memo-textcontent:hover .delete-button {
+          display: block;
+          position: absolute;
+          right: 20px;
+          top: 12px;
+          color: white;
+        }
 
-    .item-memo-textcontent.hovered  {
+    .item-memo-textcontent:hover  {
       background-color: #845A6D;
     }
 
-.item-memo-textcontent.done {
-  background-color: #B9929F;;
-  color: black;
-  font-weight: lighter;
-}
+    .item-memo-textcontent.done {
+      background-color: #B9929F;;
+      color: black;
+      font-weight: lighter;
+    }

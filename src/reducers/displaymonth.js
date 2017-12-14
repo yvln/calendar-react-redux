@@ -8,8 +8,7 @@ const displaymonth = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.DISPLAY_DETAILS_DAY:
       return Object.assign({}, state, {
-        day: action.payload.day,
-        memos: action.payload.memos
+        day: action.payload.day
       });
     default:
       return state;

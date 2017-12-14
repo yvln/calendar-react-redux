@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './Month.css';
 
 import Calendar from 'react-calendar';
-import AllMemos from './AllMemos';
 
 import WithManageMemo from '../containers/WithManageMemo';
 
