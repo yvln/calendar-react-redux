@@ -3,85 +3,41 @@ import PropTypes from 'prop-types';
 import './ManageMemo.css';
 
 import WithMemoForm from '../containers/WithMemoForm';
+import AllMemos from './AllMemos';
 
 class ManageMemo extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
-  state = {
-    hovered: 0
-  }
-
-  componentDidUpdate(nextProps) {
-    if (this.props.memos.length !== nextProps.memos.length) {
-      this.onHover();
-    }
-  }
-
-  onClickItem = (event) => {
-    event.target.classList.toggle('done');
-  }
-
-  onMouseOver = (event, index) => {
-    event.target.classList.add('hovered');
-    this.setState({
-      hovered: parseInt(index)
-    })
-    this.onHover();
-  }
-  onMouseLeave = (event) => {
-    event.target.classList.remove('hovered');
-    this.setState({
-      hovered: 0
-    })
-    this.onHover();
-  }
-
-  onHover = () => {
-    const itemMemo = [...document.querySelectorAll('.item-memo')];
-    itemMemo.forEach( element => {
-      let id = element.getAttribute('data-id');
-      element.addEventListener('mouseleave', this.onMouseLeave);
-      element.addEventListener('mouseover', e => {this.onMouseOver(e, id)});
-    })
-  }
-
-  getAllMemos = (memos, day, deleteItem) => {
-    return memos.map(memo => {
-      if (memo.date === day) {
-        return <div key={Math.random()} className='itemMemoContainer'>
-
-                  <div className='item-memo'
-                    data-id={memo.index}
-                    onClick={this.onClickItem}
-                    key={Math.random()} >
-                    <div className='item-memo-textcontent'>{memo.text.content}</div>
-                  </div>
-
-                  {this.state.hovered === memo.index &&
-                    <div className='delete-button-container'>
-                      <button className='delete-button' onClick={() => {this.props.deleteItem(memo.index)}}>Delete</button>
-                    </div>
-                  }
-
-               </div>
-      }
-    })
-  }
-
   render() {
-    const { memos, day } = this.props;
+
+    const { memos, day, deleteItem, onClickItem } = this.props;
     return (
       <div className='manageMemos'>
         {day &&
           <div className="memoOfTheDay">
+
             <div className="dayClicked">{day}</div>
-            <WithMemoForm />
-            {memos.length !== 0 &&
-              <div className="memoListOfTheDay">{this.getAllMemos(memos, day)}</div>
+
+            {day !== 'All Memos' &&
+              <WithMemoForm />
             }
+            {day === 'All Memos' &&
+              <div>Click on a day to add a memo!</div>
+            }
+
+            {memos.length === 0 && day !== 'All Memos' &&
+              <div className="memoListEmpty">Nothing is planned for this day!</div>
+            }
+
+            {memos.length !== 0 &&
+              <div className="memoListOfTheDay">
+                <AllMemos
+                  memos={memos}
+                  day={day}
+                  deleteItem={deleteItem}
+                  />
+              </div>
+            }
+
           </div>
         }
       </div>

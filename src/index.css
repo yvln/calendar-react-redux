@@ -3,10 +3,15 @@ body {
   padding: 0;
   font-family: sans-serif;
   width: 100%;
+  font-family: 'Fresca', sans-serif;
 }
 
 input:focus{
   outline: none;
+}
+
+button {
+  font-family: 'Fresca', sans-serif;
 }
 
 button:focus{

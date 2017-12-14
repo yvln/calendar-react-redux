@@ -5,56 +5,27 @@
     .memoOfTheDay {
       background-color: #B9929F;
       padding: 30px;
-      margin-top: 20px;
+      margin: 20px 0 20px 0;
+      max-height: 90vh;
     }
 
         .dayClicked {
-          margin: 10px 0;
-          font-size: 35px;
+          margin-bottom: 10px;
+          font-size: 30px;
           color: white;
         }
 
         .memoListOfTheDay {
           background-color: #523249;
           margin-top: 40px;
-          padding: 20px 0;
+          padding: 15px 0;
           border-radius: 10px;
+          max-height: 55vh;
+          overflow-y: scroll;
         }
 
-            .itemMemoContainer {
-              position: relative;
-              display: flex;
-            }
-
-                .item-memo {
-                  flex:1;
-                }
-
-                .item-memo-textcontent {
-                  color: white;
-                  padding: 10px 70px;
-                  margin: 3px 0;
-                }
-
-                .delete-button-container {
-                  position: absolute;
-                  width: 50px;
-                  right: 20px;
-                  align-self: center;
-                }
-
-                    .delete-button {
-                      border: none;
-                      background-color: transparent;
-                      color: white;
-                    }
-
-            .done {
-              text-decoration: line-through;
-              background-color: #B9929F;;
-              color: black;
-            }
-
-            .item-memo.hovered {
-              background-color: #845A6D;
-            }
+        .memoListEmpty {
+          padding: 30px 0 0 0;
+          color: #E2C2C6;
+          font-size: 15px;
+        }

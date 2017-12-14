@@ -2,10 +2,14 @@ import actionTypes from './actionTypes';
 
 export const displayDetailsDays = (day, memos) => {
   let memosFilter;
-  if (memos) {
-    memosFilter = memos.filter(e => {return e.date === day});
+  if (day === 'All Memos') {
+    memosFilter = [...memos];
   } else {
-    memosFilter = []
+    if (memos) {
+      memosFilter = memos.filter(e => {return e.date === day});
+    } else {
+      memosFilter = []
+    }
   }
   return {
     type: actionTypes.DISPLAY_DETAILS_DAY,

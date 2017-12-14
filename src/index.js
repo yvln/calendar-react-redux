@@ -14,7 +14,10 @@ const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && windo
 ReactDOM.render(
   <Provider store={store}>
     <App />
-  </Provider>, 
+  </Provider>,
   document.getElementById('root')
 );
 registerServiceWorker();
+
+// 1 component pour chaque memo pour gérer le hover
+// button See All à la place de la liste à côté du calendar

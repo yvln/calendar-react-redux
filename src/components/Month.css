@@ -6,6 +6,8 @@
 
     .title {
       color: #523249;
+      font-size: 30px;
+      margin: 20px 0;
     }
 
     .content {
@@ -27,4 +29,20 @@
           margin: 20px 0;
           border-radius: 4px;
           overflow-y: scroll;
+        }
+
+    .whenMemos {
+      position: relative;
+    }
+
+        .buttonSeeAllMemos {
+          position: absolute;
+          top: 30px;
+          right: 10px;
+          border: none;
+          background-color: transparent;
+        }
+
+        .buttonSeeAllMemos:hover {
+          color: white;
         }

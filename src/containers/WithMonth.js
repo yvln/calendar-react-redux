@@ -12,6 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onClickDay: (dateObj, memos) => {
+
       let day = dateObj.getDate();
       if (day < 10) {
         day = '0'+day
@@ -19,7 +20,11 @@ const mapDispatchToProps = (dispatch) => {
       const month = dateObj.getMonth()+1;
       const year = dateObj.getFullYear();
       const fullDate = `${day}/${month}/${year}`;
+
       dispatch(actions.displayDetailsDays(fullDate, memos));
+    },
+    onClickSeeAll: (memos) => {
+      dispatch(actions.displayDetailsDays('All Memos', memos));
     }
   };
 };

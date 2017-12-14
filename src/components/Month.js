@@ -7,11 +7,11 @@ import AllMemos from './AllMemos';
 
 import WithManageMemo from '../containers/WithManageMemo';
 
-const Month = ({ onClickDay, day, memos }) => {
+const Month = ({ onClickDay, onClickSeeAll, day, memos }) => {
   return (
     <div className='up'>
       <div className='title'>
-        <h1>My Calendar with Redux</h1>
+        <div>My Calendar with Redux</div>
       </div>
       <div className='content'>
         <div className='calendarContainer'>
@@ -20,15 +20,16 @@ const Month = ({ onClickDay, day, memos }) => {
             onClickDay={day=>{onClickDay(day, memos)}}
           />
         </div>
-        {memos.length !== 0 &&
-          <div className='allMemos'>
-            <AllMemos
-              memos={memos} />
-          </div>
-        }
       </div>
       {day &&
-        <WithManageMemo />
+        <div className='whenMemos'>
+          {day !== 'All Memos' &&
+            <button className='buttonSeeAllMemos' onClick={() => {onClickSeeAll(memos)}}>
+              See all memos
+            </button>
+          }
+          <WithManageMemo />
+        </div>
       }
     </div>
   )
@@ -36,6 +37,7 @@ const Month = ({ onClickDay, day, memos }) => {
 
 Month.propTypes = {
   onClickDay: PropTypes.func.isRequired,
+  onClickSeeAll: PropTypes.func.isRequired,
   day: PropTypes.string,
   memos: PropTypes.any,
 };

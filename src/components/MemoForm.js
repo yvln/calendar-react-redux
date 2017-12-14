@@ -4,10 +4,6 @@ import './MemoForm.css';
 
 
 class MemoForm extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentWillReceiveProps(nextProps) {
     if (this.props.memos.length !== nextProps.memos.length) {
       this.props.displayAllMemos(nextProps.day, nextProps.memos);
