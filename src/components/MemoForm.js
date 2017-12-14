@@ -22,7 +22,7 @@ class MemoForm extends Component {
     return (
       <div className='formContainer'>
         <form onSubmit={(event) => {event.preventDefault(); event.target.reset(); {onSubmitMemo(this.input, day, memos);}}}>
-          <input autocomplete="off" name="newMemo" type='textarea' onChange={this.onInputChange} />
+          <input autoComplete="off" name="newMemo" type='textarea' onChange={this.onInputChange} />
           <button type='submit'>Submit</button>
         </form>
       </div>
