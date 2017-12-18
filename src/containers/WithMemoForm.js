@@ -1,25 +1,22 @@
-import { connect } from 'react-redux';
-import MemoForm from '../components/MemoForm';
-import * as actions from '../actions';
+import { connect } from "react-redux";
+import MemoForm from "../components/MemoForm";
+import * as actions from "../actions";
 
-const mapStateToProps = (state) => {
-    return {
-      day: state.currentday,
-      memos: state.memos
-    };
+const mapStateToProps = state => {
+  return {
+    day: state.currentday,
+    memos: state.memos
+  };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onSubmitMemo: (input, day, memos) => {
-      dispatch(actions.addAMemo(input, day))
+      dispatch(actions.addAMemo(input, day));
     }
   };
 };
 
-const WithMemoForm = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(MemoForm);
+const WithMemoForm = connect(mapStateToProps, mapDispatchToProps)(MemoForm);
 
 export default WithMemoForm;

@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import './AllMemos.css';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import "./AllMemos.css";
 
-import OneMemo from './OneMemo';
+import OneMemo from "./OneMemo";
 
 class AllMemos extends Component {
-
   allMemos = () => {
-    const {memos, day} = this.props
+    const { memos, day } = this.props;
     return memos.map(memo => {
       return (
-        <li className='item-memo'
-          key={memo.id}>
+        <li className="item-memo" key={memo.id}>
           <OneMemo
             day={day}
             date={memo.date}
@@ -20,23 +18,19 @@ class AllMemos extends Component {
             deleteItem={this.props.deleteItem}
           />
         </li>
-      )
-    })
-  }
+      );
+    });
+  };
 
   render() {
-    return (
-      <ul className='allMemosList'>
-        {this.allMemos()}
-      </ul>
-    )
+    return <ul className="allMemosList">{this.allMemos()}</ul>;
   }
 }
 
 AllMemos.propTypes = {
   memos: PropTypes.array,
   day: PropTypes.string,
-  deleteItem: PropTypes.func,
+  deleteItem: PropTypes.func
 };
 
 export default AllMemos;

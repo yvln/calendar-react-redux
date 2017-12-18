@@ -1,11 +1,11 @@
-import actionTypes from './actionTypes';
+import actionTypes from "./actionTypes";
 
-export const displayDetailsDays = (day) => {
+export const displayDetailsDays = day => {
   return {
     type: actionTypes.DISPLAY_DETAILS_DAY,
     payload: {
       day: day
-    },
+    }
   };
 };
 
@@ -15,9 +15,9 @@ export const addAMemo = (text, dayCalendar) => {
   id++;
   let day = new Date().getDate();
   if (day < 10) {
-    day = '0'+day
+    day = "0" + day;
   }
-  const month = new Date().getMonth()+1;
+  const month = new Date().getMonth() + 1;
   const year = new Date().getFullYear();
   const fullDate = `${day}/${month}/${year}`;
   return {
@@ -27,17 +27,17 @@ export const addAMemo = (text, dayCalendar) => {
       date: dayCalendar,
       text: {
         date: fullDate,
-        content: text,
+        content: text
       }
-    },
+    }
   };
 };
 
-export const deleteAMemo = (id) => {
+export const deleteAMemo = id => {
   return {
     type: actionTypes.DELETE_A_MEMO,
     payload: {
       id: id
-    },
+    }
   };
 };

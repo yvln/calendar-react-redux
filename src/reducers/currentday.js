@@ -1,6 +1,6 @@
-import actionTypes from '../actions/actionTypes';
+import actionTypes from "../actions/actionTypes";
 
-const initialState = '';
+const initialState = "";
 
 const currentday = (state = initialState, action) => {
   switch (action.type) {

@@ -1,39 +1,38 @@
-import { connect } from 'react-redux';
-import ManageMemo from '../components/ManageMemo';
-import * as actions from '../actions';
+import { connect } from "react-redux";
+import ManageMemo from "../components/ManageMemo";
+import * as actions from "../actions";
 
 const getFilteredMemos = (day, memos) => {
   let memosFilter;
-  if (day === 'All Memos') {
+  if (day === "All Memos") {
     memosFilter = [...memos];
   } else {
     if (memos) {
-      memosFilter = memos.filter(e => {return e.date === day});
+      memosFilter = memos.filter(e => {
+        return e.date === day;
+      });
     } else {
-      memosFilter = []
+      memosFilter = [];
     }
   }
   return memosFilter;
-}
+};
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     memos: getFilteredMemos(state.currentday, state.memos),
-     day: state.currentday,
+    day: state.currentday
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    deleteItem: (id) => {
-      dispatch(actions.deleteAMemo(id))
+    deleteItem: id => {
+      dispatch(actions.deleteAMemo(id));
     }
   };
 };
 
-const WithManageMemo = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(ManageMemo);
+const WithManageMemo = connect(mapStateToProps, mapDispatchToProps)(ManageMemo);
 
 export default WithManageMemo;

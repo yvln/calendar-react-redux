@@ -1,11 +1,12 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-import WithMonth from './containers/WithMonth'
+import WithMonth from "./containers/WithMonth";
 
-const App = () =>
+const App = () => (
   <div className="App">
     <WithMonth />
   </div>
+);
 
 export default App;
