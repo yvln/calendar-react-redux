@@ -6,38 +6,36 @@ import OneMemo from './OneMemo';
 
 class AllMemos extends Component {
 
-  allMemos = (memos, day) => {
-      return memos.map(memo => {
-        return (
-          <li className='item-memo'
-            key={memo.index}
-            data-id={memo.index}>
-            <OneMemo
-              day={day}
-              date={memo.date}
-              dataid={memo.index}
-              text={memo.text.content}
-              deleteItem={this.props.deleteItem}
-            />
-          </li>
-        )
-      })
+  allMemos = () => {
+    const {memos, day} = this.props
+    return memos.map(memo => {
+      return (
+        <li className='item-memo'
+          key={memo.id}>
+          <OneMemo
+            day={day}
+            date={memo.date}
+            dataid={memo.id}
+            text={memo.text.content}
+            deleteItem={this.props.deleteItem}
+          />
+        </li>
+      )
+    })
   }
 
   render() {
-    const { memos, day } = this.props;
-
     return (
       <ul className='allMemosList'>
-        {this.allMemos(memos, day)}
+        {this.allMemos()}
       </ul>
     )
   }
 }
 
 AllMemos.propTypes = {
-  memos: PropTypes.any,
-  day: PropTypes.any,
+  memos: PropTypes.array,
+  day: PropTypes.string,
   deleteItem: PropTypes.func,
 };
 

@@ -9,7 +9,10 @@ export const displayDetailsDays = (day) => {
   };
 };
 
-export const addAMemo = (text, dayCalendar, index) => {
+let id = 0;
+
+export const addAMemo = (text, dayCalendar) => {
+  id++;
   let day = new Date().getDate();
   if (day < 10) {
     day = '0'+day
@@ -20,7 +23,7 @@ export const addAMemo = (text, dayCalendar, index) => {
   return {
     type: actionTypes.ADD_A_MEMO,
     payload: {
-      index: index,
+      id: id,
       date: dayCalendar,
       text: {
         date: fullDate,
@@ -30,11 +33,11 @@ export const addAMemo = (text, dayCalendar, index) => {
   };
 };
 
-export const deleteAMemo = (index) => {
+export const deleteAMemo = (id) => {
   return {
     type: actionTypes.DELETE_A_MEMO,
     payload: {
-      index: index
+      id: id
     },
   };
 };

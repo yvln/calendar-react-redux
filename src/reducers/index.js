@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import displaymonth from './displaymonth';
+import currentday from './currentday';
 import memos from './memos';
 
 const rootReducer = combineReducers({
-    displaymonth,
+    currentday,
     memos
 });
 

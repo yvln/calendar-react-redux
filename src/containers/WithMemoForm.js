@@ -4,21 +4,15 @@ import * as actions from '../actions';
 
 const mapStateToProps = (state) => {
     return {
-      day: state.displaymonth.day,
+      day: state.currentday,
       memos: state.memos
     };
 };
 
-let indexMemo = 0;
-
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onSubmitMemo: (input, day, memos) => {
-      indexMemo++;
-      dispatch(actions.addAMemo(input, day, indexMemo))
-    },
-    displayAllMemos: (day, memos) => {
-      dispatch(actions.displayDetailsDays(day, memos))
+      dispatch(actions.addAMemo(input, day))
     }
   };
 };

@@ -4,8 +4,14 @@ import './OneMemo.css';
 
 class OneMemo extends Component {
 
-  onClickItem = (event) => {
-    event.target.classList.toggle('done');
+  state = {
+    done: false
+  }
+
+  onClickItem = () => {
+    this.setState((currentState) => ({
+      done: !currentState.done
+    }))
   }
 
   render() {
@@ -13,11 +19,10 @@ class OneMemo extends Component {
 
     return (
       <span className='itemMemoContainer'
-        data-id={dataid}
         onClick={this.onClickItem}
         ref={element => this.element = element}>
 
-          <span className='item-memo-textcontent'>
+          <span className={`item-memo-textcontent ${this.state.done ? 'done' : ''}`}>
 
             {day === 'All Memos' &&
               <span className='dateMemoText'>{date}</span>
@@ -25,11 +30,9 @@ class OneMemo extends Component {
 
             {text}
 
-            {true &&
-              <span className='delete-button' onClick={() => {deleteItem(dataid)}}>
-                Delete
-              </span>
-            }
+            <span className='delete-button' onClick={() => {deleteItem(dataid)}}>
+              Delete
+            </span>
 
           </span>
 
@@ -39,10 +42,10 @@ class OneMemo extends Component {
 }
 
 OneMemo.propTypes = {
-  day: PropTypes.any,
-  date: PropTypes.any,
-  dataid: PropTypes.any,
-  text: PropTypes.any,
+  day: PropTypes.string,
+  date: PropTypes.string,
+  dataid: PropTypes.number,
+  text: PropTypes.string,
   deleteItem: PropTypes.func,
 };
 

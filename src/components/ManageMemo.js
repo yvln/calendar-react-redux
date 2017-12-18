@@ -47,7 +47,7 @@ class ManageMemo extends Component {
 
 ManageMemo.propTypes = {
   day: PropTypes.string,
-  memos: PropTypes.any,
+  memos: PropTypes.array,
   deleteItem: PropTypes.func,
 };
 

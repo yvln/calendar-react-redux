@@ -38,7 +38,7 @@ Month.propTypes = {
   onClickDay: PropTypes.func.isRequired,
   onClickSeeAll: PropTypes.func.isRequired,
   day: PropTypes.string,
-  memos: PropTypes.any,
+  memos: PropTypes.array,
 };
 
 export default Month;

@@ -1,5 +1,9 @@
 # Calendar app with React & Redux
 
+## Setup
+- ```npm install```
+- ```npm start```
+
 ## Landing Page
 This part of the app been done with react-calendar. Clicking on a day sends a date object with the function "onClickDay"
 ![Landing Page](https://img15.hostingpics.net/pics/299537Capturedecran20171214a182716.png "Landing Page")

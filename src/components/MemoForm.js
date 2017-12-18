@@ -4,12 +4,6 @@ import './MemoForm.css';
 
 
 class MemoForm extends Component {
-  componentWillReceiveProps(nextProps) {
-    if (this.props.memos.length !== nextProps.memos.length) {
-      this.props.displayAllMemos(nextProps.day, nextProps.memos);
-    }
-  }
-
   input = null;
 
   onInputChange = (event) => {
@@ -32,9 +26,8 @@ class MemoForm extends Component {
 
 MemoForm.propTypes = {
   onSubmitMemo: PropTypes.func,
-  displayAllMemos: PropTypes.func,
   day: PropTypes.string,
-  memos: PropTypes.any,
+  memos: PropTypes.array,
 };
 
 export default MemoForm;

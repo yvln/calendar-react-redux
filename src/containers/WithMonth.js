@@ -4,7 +4,7 @@ import * as actions from '../actions';
 
 const mapStateToProps = (state) => {
   return {
-    day: state.displaymonth.day,
+    day: state.currentday,
     memos: state.memos,
   };
 };

@@ -18,15 +18,15 @@ const getFilteredMemos = (day, memos) => {
 
 const mapStateToProps = (state) => {
   return {
-    memos: getFilteredMemos(state.displaymonth.day, state.memos),
-     day: state.displaymonth.day,
+    memos: getFilteredMemos(state.currentday, state.memos),
+     day: state.currentday,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteItem: (index) => {
-      dispatch(actions.deleteAMemo(index))
+    deleteItem: (id) => {
+      dispatch(actions.deleteAMemo(id))
     }
   };
 };

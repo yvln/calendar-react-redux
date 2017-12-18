@@ -6,7 +6,7 @@ const memos = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.ADD_A_MEMO:
       return [...state, {
-        index: action.payload.index,
+        id: action.payload.id,
         date: action.payload.date,
         text: {
           date: action.payload.text.date,
@@ -14,13 +14,20 @@ const memos = (state = initialState, action) => {
         }
       }];
     case actionTypes.DELETE_A_MEMO:
-      const newArray = [];
-      [...state].forEach(e => {
-        if (e.index !== action.payload.index) {
-          newArray.push(e)
+      // const newArray = [];
+      // state.forEach(e => {
+      //   if (e.id !== action.payload.id) {
+      //     newArray.push(e)
+      //   }
+      // })
+      // return newArray;
+      return state.reduce( (acc, curr) => {
+        if (curr.id !== action.payload.id ) {
+          acc.push(curr);
         }
-      })
-      return newArray;
+        return acc;
+      }, []);
+
     default:
       return state;
   }
